@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 let userToken = "";
 
+const liveUrl = "https://shoppingappserver.onrender.com/";
+
 export function UserLogin(){
 
     const [user_email, setUserEmail] = useState("");
@@ -12,7 +14,7 @@ export function UserLogin(){
     
     function onUserLogin(event){
         event.preventDefault();
-        axios.post("http://localhost:8000/UserLogin", {user_email, user_pass})
+        axios.post(liveUrl + "UserLogin", {user_email, user_pass})
         .then(res => {
             if(res.status !== 200){
                 //Display error
@@ -59,7 +61,7 @@ export function UserSignup(){
     
     function onUserSignup(event){
         event.preventDefault();
-        axios.post("http://localhost:8000/UserSignup", {user_pass, username, user_email})
+        axios.post(liveUrl + "UserSignup", {user_pass, username, user_email})
         .then(res => {console.log(res)
         navigate("/UserLogin");
         })
@@ -97,7 +99,7 @@ export function SellerLogin(){
     function onSellerLogin(event){
         localStorage.clear();
         event.preventDefault();
-        axios.post("http://localhost:8000/SellerLogin", {seller_email, seller_pass})
+        axios.post(liveUrl + "SellerLogin", {seller_email, seller_pass})
         .then(res => {
             if(res.status !== 200){
                 //Display error
@@ -142,7 +144,7 @@ export function SellerSignup(){
     
     function onSellerSignup(event){
         event.preventDefault();
-        axios.post("http://localhost:8000/SellerSignup", {seller_pass, seller_name, seller_email})
+        axios.post(liveUrl + "SellerSignup", {seller_pass, seller_name, seller_email})
         .then(res => {console.log(res)
         navigate("/SellerLogin");
         })

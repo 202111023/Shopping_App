@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import './SellerDashboard.css'
 import { Link } from 'react-router-dom'
+
+const liveUrl = "https://shoppingappserver.onrender.com/";
+
 export function SellerDashboardBtn(){
     return <>
         <Link to="/SellerDashboard" className='fixedBtn'>Seller Dashboard</Link>
@@ -29,32 +32,32 @@ export function SellerDashboard(){
     const seller_id = localStorage.getItem("ID");
 
     function totalSaleOfProdReq(){
-        fetch("http://localhost:8000/totalSaleOfProd", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, p_id: pid })})
+        fetch(liveUrl + "totalSaleOfProd", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, p_id: pid })})
         .then(res => res.json())
         .then(res => SetTotalSaleOfProd(res.total_quantity_ordered))
         .catch(err => console.log(err))
     }
     function totalQuantBySellerReq(){
-        fetch("http://localhost:8000/totalQuantityBySeller", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, p_id: pid })})
+        fetch(liveUrl + "totalQuantityBySeller", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, p_id: pid })})
         .then(res => res.json())
         .then(res=> (res.total_quantity_sold))
         .then(res => SetTotalQuantBySeller(res))
         .catch(err => console.log(err))
     }
     function totalQuantOnPlatReq(){
-        fetch("http://localhost:8000/totalSaleOnPlat", {method: "post", headers: {"Content-Type": "application/json"}})
+        fetch(liveUrl + "totalSaleOnPlat", {method: "post", headers: {"Content-Type": "application/json"}})
         .then(res => res.json())
         .then(res => res.total_quant)
         .then(res => SetTotalQuantOnPlat(res))
     }
     function totalSaleBySellerReq(){
-        fetch("http://localhost:8000/totalSaleBySeller", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, p_id: pid })})
+        fetch(liveUrl + "totalSaleBySeller", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, p_id: pid })})
         .then(res => res.json())
         .then(res => res.total_value)
         .then(res => SetTotalSaleBySeller(res))
     }
     function maxSalesProdReq(){
-        fetch("http://localhost:8000/maxSalesProd", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, p_id: pid })})
+        fetch(liveUrl + "maxSalesProd", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, p_id: pid })})
         .then(res => res.json())
         .then(res => {SetMaxSoldProdName(res.p_name);
                     SetMaxSoldProdQuant(res.total_quantity_sold);
@@ -62,7 +65,7 @@ export function SellerDashboard(){
         })
     }
     function highestSalesLocReq(){
-        fetch("http://localhost:8000/highestSalesLoc", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, p_id: pid })})
+        fetch(liveUrl + "highestSalesLoc", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, p_id: pid })})
         .then(res => res.json())
         .then(res => {
             SetHighestSalesLoc(res.pincode);
@@ -73,13 +76,13 @@ export function SellerDashboard(){
     }
     function averageOrderValueReq(){
 
-        fetch("http://localhost:8000/averageOrderValue", {method: "post", headers: {"Content-Type": "application/json"}})
+        fetch(liveUrl + "averageOrderValue", {method: "post", headers: {"Content-Type": "application/json"}})
         .then(res => res.json())
         .then(res => parseFloat(res.average_price))
         .then(res => SetAverageOrderValue(res))
     }
     function competitorAnalysis(){
-        fetch("http://localhost:8000/competitorAnalysis", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, category: category })})
+        fetch(liveUrl + "competitorAnalysis", {method: "post", headers: {"Content-Type": "application/json"}, body: JSON.stringify({ ID: seller_id, category: category })})
         .then(res => res.json())
         .then(res => {
             SetTopSeller(res.seller_id);
@@ -89,7 +92,7 @@ export function SellerDashboard(){
     }
 
     function prodList(){
-        fetch("http://localhost:8000/prodList", {method: "post", headers: {"Content-Type": "application/json"}})
+        fetch(liveUrl + "prodList", {method: "post", headers: {"Content-Type": "application/json"}})
         .then(res => res.json())
         .then(res => {SetPids(res)})
     }

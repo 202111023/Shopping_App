@@ -7,6 +7,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { SellerDashboardBtn } from './SellerDashBoard';
 
+const liveUrl = "https://shoppingappserver.onrender.com/";
+
 export function UserStore() {
   const authenticated = useAuth("auth");
   const [isAuthorized, setIsAuthorized] = useState(false);
@@ -15,7 +17,7 @@ export function UserStore() {
   useEffect(() => {
     if (authenticated) {
       const userID = localStorage.getItem("ID");
-      fetch("http://localhost:8000/GetCartId", {
+      fetch(`${liveUrl}GetCartId`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ID: userID }),
@@ -116,7 +118,7 @@ export function AddProduct(){
         event.preventDefault();
         console.log(category);
         const seller_ID = localStorage.getItem("ID");
-        axios.post("http://localhost:8000/SellerStore/NewProduct", {seller_ID, pname, pprice, pdescr, category})
+        axios.post(`${liveUrl}SellerStore/NewProduct`, {seller_ID, pname, pprice, pdescr, category})
         .then((res) => {
             if(res.status === 200)
                 {window.alert("Successfully saved your data")
@@ -161,7 +163,7 @@ export function Kitchen(){
     useEffect(() => {
       const seller_ID = localStorage.getItem("ID");
       if (authenticated) {
-        fetch("http://localhost:8000/Kitchen", {
+        fetch(`${liveUrl}Kitchen`, {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"
@@ -197,7 +199,7 @@ export function Kitchen(){
     useEffect(() => {
       const seller_ID = localStorage.getItem("ID");
       if (authenticated) {
-        fetch("http://localhost:8000/Electronics", {
+        fetch(`${liveUrl}Electronics`, {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"
@@ -233,7 +235,7 @@ export function Kitchen(){
     useEffect(() => {
       const seller_ID = localStorage.getItem("ID");
       if (authenticated) {
-        fetch("http://localhost:8000/Clothes", {
+        fetch(`${liveUrl}Clothes`, {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"
@@ -269,7 +271,7 @@ export function Kitchen(){
     useEffect(() => {
       const seller_ID = localStorage.getItem("ID");
       if (authenticated) {
-        fetch("http://localhost:8000/PersonalCare", {
+        fetch(`${liveUrl}PersonalCare`, {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"
@@ -333,7 +335,7 @@ export function Kitchen(){
   function AddToCart(data){
     console.log("add to cart");
     const userID = localStorage.getItem("ID");
-    fetch("http://localhost:8000/AddToCart", {method: "POST",headers: {"Content-Type": "application/json"} ,body: JSON.stringify({ID: userID, pid: data})})
+    fetch(`${liveUrl}AddToCart`, {method: "POST",headers: {"Content-Type": "application/json"} ,body: JSON.stringify({ID: userID, pid: data})})
     .catch(res => console.log(res))
 
     window.alert("Product added to cart");
@@ -353,7 +355,7 @@ export function Kitchen(){
     useEffect(()=>{
       const userID = localStorage.getItem("ID");
       
-      fetch("http://localhost:8000/ShowCart", {method: "POST", headers: {"Content-Type": "application/json"}, body:JSON.stringify({ID: userID})})
+      fetch(`${liveUrl}ShowCart`, {method: "POST", headers: {"Content-Type": "application/json"}, body:JSON.stringify({ID: userID})})
       .then(res => res.json())
       .then(res => setItem(res))
       .catch(res => console.log(res))
@@ -361,7 +363,7 @@ export function Kitchen(){
     
     function DeleteFromCart(cartID, p_id){
       const userID = localStorage.getItem("ID");
-      fetch("http://localhost:8000/DeleteFromCart", {method: "POST",headers: {"Content-Type": "application/json"} ,body: JSON.stringify({ID: userID, cart_id: cartID, pid: p_id})})
+      fetch(`${liveUrl}DeleteFromCart`, {method: "POST",headers: {"Content-Type": "application/json"} ,body: JSON.stringify({ID: userID, cart_id: cartID, pid: p_id})})
       .catch(res => console.log(res))
 
       navigate("/ShowCart");
@@ -372,7 +374,7 @@ export function Kitchen(){
 
       console.log("add to cart");
       const userID = localStorage.getItem("ID");
-      fetch("http://localhost:8000/AddToCart", {method: "POST",headers: {"Content-Type": "application/json"} ,body: JSON.stringify({ID: userID, pid: data})})
+      fetch(`${liveUrl}AddToCart`, {method: "POST",headers: {"Content-Type": "application/json"} ,body: JSON.stringify({ID: userID, pid: data})})
       .catch(res => console.log(res))
 
       navigate("/ShowCart");
@@ -382,7 +384,7 @@ export function Kitchen(){
     function RemoveFromCart(cartID, p_id){
       console.log("remove from cart");
       const userID = localStorage.getItem("ID");
-      fetch("http://localhost:8000/RemoveFromCart", {method: "POST",headers: {"Content-Type": "application/json"} ,body: JSON.stringify({ID: userID, cart_id: cartID, pid: p_id})})
+      fetch(`${liveUrl}RemoveFromCart`, {method: "POST",headers: {"Content-Type": "application/json"} ,body: JSON.stringify({ID: userID, cart_id: cartID, pid: p_id})})
       .catch(res => console.log(res));
       
       navigate("/ShowCart");
@@ -417,7 +419,7 @@ export function Kitchen(){
     if(authenticated){
       const userID = localStorage.getItem("ID");
 
-      fetch("http://localhost:8000/UserStore/Clothing")
+      fetch(`${liveUrl}UserStore/Clothing`)
       .then(res => res.json())
       .then(res => setProd(res))
       .catch(res => console.log(res));
@@ -452,7 +454,7 @@ export function Kitchen(){
     if(authenticated){
       const userID = localStorage.getItem("ID");
 
-      fetch("http://localhost:8000/UserStore/Electronics")
+      fetch(`${liveUrl}UserStore/Electronics`)
       .then(res => res.json())
       .then(res => setProd(res))
       .catch(res => console.log(res));
@@ -486,7 +488,7 @@ export function Kitchen(){
     if(authenticated){
       const userID = localStorage.getItem("ID");
 
-      fetch("http://localhost:8000/UserStore/Kitchen")
+      fetch(`${liveUrl}UserStore/Kitchen`)
       .then(res => res.json())
       .then(res => setProd(res))
       .catch(res => console.log(res));
@@ -520,7 +522,7 @@ export function Kitchen(){
     if(authenticated){
       const userID = localStorage.getItem("ID");
 
-      fetch("http://localhost:8000/UserStore/PersonalCare")
+      fetch(`${liveUrl}UserStore/PersonalCare`)
       .then(res => res.json())
       .then(res => setProd(res))
       .catch(res => console.log(res));
@@ -560,6 +562,6 @@ export function Kitchen(){
 function PlaceOrder(){
     const userID = localStorage.getItem("ID");
     const cart_id = localStorage.getItem("cart_id");
-    fetch("http://localhost:8000/PlaceOrder", {method: "POST",headers: {"Content-Type": "application/json"} ,body: JSON.stringify({ID: userID, cart_id: cart_id})})
+    fetch(`${liveUrl}PlaceOrder`, {method: "POST",headers: {"Content-Type": "application/json"} ,body: JSON.stringify({ID: userID, cart_id: cart_id})})
     .then(window.alert("Order Placed Successfully")).then(window.location.reload()).catch((err) => console.log(err))
   }

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 const userToken = localStorage.getItem("Token");
 const userID = localStorage.getItem("ID");
 
+const liveUrl = "https://shoppingappserver.onrender.com/";
+
 function useAuth(authParam){
     const [authenticated, setAuthenticated] = useState(false);
     const data = {
@@ -14,7 +16,7 @@ function useAuth(authParam){
       console.log("TOKEN = " + userToken)
   
       if (userToken){
-        fetch(`http://localhost:8000/${authPath}`, { method: 'POST', headers: { "Content-Type": "application/json", Authorization: `Bearer: ${userToken}`}, body: JSON.stringify(data) })
+        fetch(`${liveUrl}${authPath}`, { method: 'POST', headers: { "Content-Type": "application/json", Authorization: `Bearer: ${userToken}`}, body: JSON.stringify(data) })
           .then(
             res => {
               if (res.status === 200) {
