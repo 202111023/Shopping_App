@@ -38,11 +38,10 @@ access to user from anywhere. And hence this project was a way for me to learn a
 Making a whole project by myself at this scale for the first time was sure difficult and tiring but also interesting 
 and helped me polish my skills.
 
-I am aware about the drawbacks like that I need to work on
-- Poor User Interface
-- visually unappealing
-- Lacks form validation
-- Payment gateway not integrated
+I need to work on improving the following aspects of the app
+- User Interface and Design of website
+- Form Validation
+- Payment gateway integration
 
 Thanks for showing interest and taking the time to explore my project. If you have any questions, feedback or suggestions please 
 don't hesitate to reach out to me Contact - deependraraliya15@gmail.com
