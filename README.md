@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Shopping App
+Please [Click here](bluequasar.byethost9.com) to use this app or use this link => bluequasar.byethost9.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app utilizes the following web technologies -
+ - React
+ - Node.js and Express
+ - MySql
+ - [jwt.io](https://jwt.io/) for authentication
 
-## Available Scripts
+### Note - 
+Use the following credentials to login so that you don't need to register and can see all features in action
+- **For Buyer account**
+```
+  - Email: useradmin@test
+  - Pass: admin
+```
+- **For Seller account**
 
-In the project directory, you can run:
+```
+  - Email: admin@test
+  - Pass: admin
+```
 
-### `npm start`
+On visiting the link given above, a user will have the options to signup or login
+A user can signup as a **Buyer** or a **Seller**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A seller account has access to a **Seller Dashboard** which gives business insights to the
+seller to make informed decisions about their business.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The **Seller Dashboard** utilizes SQL queries to get realtime data
+I added this feature because of my interest in Business Intelligence
 
-### `npm test`
+## Improvements/Future Updates
+At the time of creating this web app, I was learning react and wanted to apply my knowledge of React, SQL, git
+and other technologies to create a full fledged application that is dynamic.
+I also had created many web apps before but had never deployed an app live, that was not static and allowed remote 
+access to user from anywhere. And hence this project was a way for me to learn all of it.
+Making a whole project by myself at this scale for the first time was sure difficult and tiring but also interesting 
+and helped me polish my skills.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I am aware about the drawbacks like that I need to work on
+- Poor User Interface
+- visually unappealing
+- Lacks form validation
+- Payment gateway not integrated
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks for showing interest and taking the time to explore my project. If you have any questions, feedback or suggestions please 
+don't hesitate to reach out to me Contact - deependraraliya15@gmail.com
