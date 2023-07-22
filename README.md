@@ -29,7 +29,7 @@ seller to make informed decisions about their business.
 
 The **Seller Dashboard** utilizes SQL queries to get realtime data
 I added this feature because of my interest in Business Intelligence.
-**I wanted to include for these reasons**
+**I wanted to include the feature for these reasons**
 - provides realtime insights and trends to sellers
 - Solves a real world problem as it focuses on using data to make decisions and improve sales and target the ideal audience
 - Simple data like user locations and repeated sales helps draw valueable conclusions
