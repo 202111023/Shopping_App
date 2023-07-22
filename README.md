@@ -1,5 +1,5 @@
 # Shopping App
-Please [Click here](www.bluequasar.byethost9.com) to use this app or use this link => www.bluequasar.byethost9.com
+To use this app, follow this link => www.bluequasar.byethost9.com
 
 This app utilizes the following web technologies -
  - React
